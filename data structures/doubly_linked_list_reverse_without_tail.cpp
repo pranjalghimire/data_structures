@@ -117,6 +117,22 @@ else{
 
 
 
+void ReverseLinkedList(){
+Node *ptr1=head;
+Node *ptr2=ptr1->next;
+
+
+ptr1->next=ptr1->prev;
+ptr1->prev=ptr2;
+while(ptr1->prev!=nullptr){
+    ptr1=ptr1->prev;
+    ptr2=ptr2->next;
+    ptr1->next=ptr1->prev;
+    ptr1->prev=ptr2;
+}
+head=ptr1;
+return;
+}
 
 
 
@@ -135,7 +151,7 @@ Insert(8,5);
 Insert(10,5);
 Print();
 Delete(5);
-
+ReverseLinkedList();
 Print();
 
 //Print();
